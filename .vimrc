@@ -1,3 +1,4 @@
+" Plugins
 call plug#begin("~/.vim/plugged")
 Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'
@@ -8,7 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-" the basics
+" The Basics
 filetype plugin indent on
 syntax on set number
 set relativenumber
@@ -23,16 +24,16 @@ set noswapfile
 set nowrap
 set cursorline
 
-" colorscheme
+" Colorscheme
 syntax enable
 set termguicolors
 set background=dark
 colorscheme nova
 
-" preferences
+" Preferences
 let mapleader = ","
 
-" nerdtree 
+" Nerdtree 
 map <C-e> :NERDTreeToggle<CR>
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']

@@ -7,6 +7,13 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'rakr/vim-one'
 call plug#end()
 
 " The Basics
@@ -28,7 +35,7 @@ set cursorline
 syntax enable
 set termguicolors
 set background=dark
-colorscheme nova
+colorscheme one
 
 " Preferences
 let mapleader = ","
@@ -49,4 +56,17 @@ set splitright
 
 " Vim Airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
+let g:airline_theme='one'
+
+" EasyMotion
+map <Leader> <Plug>(Space)
+
+" Disable arrow keys
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>

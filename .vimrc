@@ -14,6 +14,10 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'rakr/vim-one'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
+Plug 'davidhalter/jedi-vim'
+Plug 'heavenshell/vim-pydocstring'
 call plug#end()
 
 " The Basics
@@ -35,7 +39,8 @@ set cursorline
 syntax enable
 set termguicolors
 set background=dark
-colorscheme one
+colorscheme nord 
+set t_Co=256
 
 " Preferences
 let mapleader = ","
@@ -73,3 +78,8 @@ noremap  <Left> ""
 noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
+
+" Running scripts in python
+nnoremap <buffer> <Ctrl-r> :exec '!python' shellescape(@%, 1)<cr>
+
+

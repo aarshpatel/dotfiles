@@ -12,12 +12,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
 Plug 'rakr/vim-one'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'davidhalter/jedi-vim'
-Plug 'heavenshell/vim-pydocstring'
 call plug#end()
 
 " The Basics
@@ -39,7 +37,7 @@ set cursorline
 syntax enable
 set termguicolors
 set background=dark
-colorscheme nord 
+colorscheme one 
 set t_Co=256
 
 " Preferences
@@ -65,10 +63,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
 let g:airline_theme='one'
 
-
-" EasyMotion
-map <Leader> <Plug>(Space)
-
 " Disable arrow keys
 noremap  <Up> ""
 noremap! <Up> <Esc>
@@ -81,5 +75,3 @@ noremap! <Right> <Esc>
 
 " Running scripts in python
 nnoremap <buffer> <Ctrl-r> :exec '!python' shellescape(@%, 1)<cr>
-
-

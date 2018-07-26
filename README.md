@@ -2,6 +2,4 @@
 
 ### Tmux
 ### Vim
-### Zshrc
-### Fish
 

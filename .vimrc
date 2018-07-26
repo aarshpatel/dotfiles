@@ -21,6 +21,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " The Basics

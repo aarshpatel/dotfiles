@@ -17,6 +17,8 @@ Plug 'rakr/vim-one'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
 Plug 'davidhalter/jedi-vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " The Basics
@@ -77,3 +79,9 @@ noremap! <Right> <Esc>
 
 " Running Python Scripts (Ctrl-r runs the python script inside the shell)
 autocmd FileType python nnoremap <buffer> <C-r> :exec '!clear; python' shellescape(@%, 1)<cr> 
+
+" UtilSnippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"

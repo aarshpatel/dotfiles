@@ -12,6 +12,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
 Plug 'rakr/vim-one'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
@@ -63,6 +64,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
 let g:airline_theme='one'
 
+
 " Disable arrow keys
 noremap  <Up> ""
 noremap! <Up> <Esc>
@@ -73,5 +75,5 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
-" Running scripts in python
-nnoremap <buffer> <Ctrl-r> :exec '!python' shellescape(@%, 1)<cr>
+" Running Python Scripts (Ctrl-r runs the python script inside the shell)
+autocmd FileType python nnoremap <buffer> <C-r> :exec '!clear; python' shellescape(@%, 1)<cr> 

@@ -19,6 +19,8 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " The Basics
@@ -40,7 +42,7 @@ set cursorline
 syntax enable
 set termguicolors
 set background=dark
-colorscheme one 
+colorscheme gruvbox 
 set t_Co=256
 
 " Preferences
@@ -64,7 +66,7 @@ set splitright
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='one'
+let g:airline_theme='gruvbox'
 
 
 " Disable arrow keys

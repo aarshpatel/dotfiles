@@ -22,6 +22,7 @@ Plug 'honza/vim-snippets'
 Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
+Plug 'tmhedberg/SimpylFold'
 call plug#end()
 
 " The Basics

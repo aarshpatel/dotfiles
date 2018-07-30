@@ -44,7 +44,7 @@ set cursorline
 syntax enable
 set termguicolors
 set background=dark
-colorscheme gruvbox 
+colorscheme one 
 set t_Co=256
 
 " Preferences
@@ -68,7 +68,7 @@ set splitright
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='gruvbox'
+let g:airline_theme='one'
 
 
 " Disable arrow keys
@@ -89,3 +89,4 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+

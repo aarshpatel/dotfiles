@@ -3,7 +3,7 @@ call plug#begin("~/.vim/plugged")
 Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'
 Plug 'zchee/deoplete-jedi'
-Plug 'scrooloose/nerdtree' 
+Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -23,6 +23,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tmhedberg/SimpylFold'
+Plug 'derekprior/vim-trimmer'
+Plug 'tommcdo/vim-exchange'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'ervandew/supertab'
 call plug#end()
 
 " The Basics
@@ -30,7 +36,7 @@ filetype plugin indent on
 syntax on set number
 set relativenumber
 set ignorecase
-set smartcase 
+set smartcase
 set nohlsearch
 set tabstop=4
 set shiftwidth=4
@@ -39,18 +45,19 @@ set nobackup
 set noswapfile
 set nowrap
 set cursorline
+set autoread
 
 " Colorscheme
 syntax enable
 set termguicolors
 set background=dark
-colorscheme one 
+colorscheme nord
 set t_Co=256
 
 " Preferences
 let mapleader = ","
 
-" Nerdtree 
+" Nerdtree
 map <C-e> :NERDTreeToggle<CR>
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
@@ -68,7 +75,7 @@ set splitright
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='one'
+let g:airline_theme='nord'
 
 
 " Disable arrow keys
@@ -82,11 +89,15 @@ noremap  <Right> ""
 noremap! <Right> <Esc>
 
 " Running Python Scripts (Ctrl-r runs the python script inside the shell)
-autocmd FileType python nnoremap <buffer> <C-r> :exec '!clear; python' shellescape(@%, 1)<cr> 
+autocmd FileType python nnoremap <buffer> <C-r> :exec '!clear; python' shellescape(@%, 1)<cr>
 
 " UtilSnippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+
+" Replace with Register
+nmap <leader>gr "*gr
+
 

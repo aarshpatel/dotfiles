@@ -28,7 +28,10 @@ Plug 'tommcdo/vim-exchange'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
-Plug 'ervandew/supertab'
+Plug 'ervandew/supertab' "Perform all your vim insert mode completions with Tab
+Plug 'airblade/vim-gitgutter' "Shows a git diff in the gutter (sign column) and stages/undoes hunks
+Plug 'machakann/vim-highlightedyank' "Make the yanked region apparent!
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 " The Basics
@@ -46,6 +49,7 @@ set noswapfile
 set nowrap
 set cursorline
 set autoread
+set updatetime=100
 
 " Colorscheme
 syntax enable
@@ -100,4 +104,11 @@ let g:UltiSnipsEditSplit="vertical"
 " Replace with Register
 nmap <leader>gr "*gr
 
+" Yank Highlighting
+let g:highlightedyank_highlight_duration = 1000
+hi HighlightedyankRegion cterm=reverse gui=reverse
+
+
+" fzf
+map ; :Files<CR>
 

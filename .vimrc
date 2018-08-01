@@ -32,6 +32,7 @@ Plug 'ervandew/supertab' "Perform all your vim insert mode completions with Tab
 Plug 'airblade/vim-gitgutter' "Shows a git diff in the gutter (sign column) and stages/undoes hunks
 Plug 'machakann/vim-highlightedyank' "Make the yanked region apparent!
 Plug 'terryma/vim-multiple-cursors'
+Plug 'benmills/vimux'
 call plug#end()
 
 " The Basics
@@ -51,12 +52,15 @@ set cursorline
 set autoread
 set updatetime=100
 
+
 " Colorscheme
 syntax enable
 set termguicolors
 set background=dark
-colorscheme nord
-set t_Co=256
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme one
+"set t_Co=256
 
 " Preferences
 let mapleader = ","
@@ -79,7 +83,7 @@ set splitright
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='nord'
+let g:airline_theme='one'
 
 
 " Disable arrow keys
@@ -91,9 +95,13 @@ noremap  <Left> ""
 noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
+"
+"Vimux
+let g:VimuxHeight = "40"
+let g:VimuxOrientation = "h"
 
 " Running Python Scripts (Ctrl-r runs the python script inside the shell)
-autocmd FileType python nnoremap <buffer> <C-r> :exec '!clear; python' shellescape(@%, 1)<cr>
+ map <Leader>py :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
 
 " UtilSnippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -105,10 +113,8 @@ let g:UltiSnipsEditSplit="vertical"
 nmap <leader>gr "*gr
 
 " Yank Highlighting
-let g:highlightedyank_highlight_duration = 1000
+let g:highlightedyank_highlight_duration = 2000
 hi HighlightedyankRegion cterm=reverse gui=reverse
-
 
 " fzf
 map ; :Files<CR>
-

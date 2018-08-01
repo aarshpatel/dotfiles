@@ -32,6 +32,7 @@ Plug 'ervandew/supertab' "Perform all your vim insert mode completions with Tab
 Plug 'airblade/vim-gitgutter' "Shows a git diff in the gutter (sign column) and stages/undoes hunks
 Plug 'machakann/vim-highlightedyank' "Make the yanked region apparent!
 Plug 'terryma/vim-multiple-cursors'
+Plug 'benmills/vimux'
 call plug#end()
 
 " The Basics
@@ -51,15 +52,19 @@ set cursorline
 set autoread
 set updatetime=100
 
+
 " Colorscheme
 syntax enable
 set termguicolors
 set background=dark
-colorscheme nord
-set t_Co=256
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorscheme one
+"set t_Co=256
 
 " Preferences
 let mapleader = ","
+let maplocalleader = "\\"
 
 " Nerdtree
 map <C-e> :NERDTreeToggle<CR>
@@ -79,7 +84,7 @@ set splitright
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='nord'
+let g:airline_theme='one'
 
 
 " Disable arrow keys
@@ -92,8 +97,34 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
+
+"Vimux
+" make the split take up 40% of the terminal screen
+let g:VimuxHeight = "40"
+" open a horizontal split
+let g:VimuxOrientation = "h"
+" close the vimux pane
+map <Leader>vq :VimuxCloseRunner<CR>
+" Prompt for a command to run
+map <Leader>vp :VimuxPromptCommand<CR>
 " Running Python Scripts (Ctrl-r runs the python script inside the shell)
-autocmd FileType python nnoremap <buffer> <C-r> :exec '!clear; python' shellescape(@%, 1)<cr>
+map <Leader>vpy :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
+
+" Zoom the runner pane (use <bind-key> z to restore runner pane)
+map <Leader>vz :call VimuxZoomRunner()<CR>
+
+function! VimuxSlime()
+    call VimuxSendText(@v)
+    call VimuxSendKeys("Enter")
+endfunction
+
+" If text is selected, save it in the v buffer and send that buffer
+" it to tmux
+vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
+
+" Select current paragraph and send it to tmux
+nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
+
 
 " UtilSnippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -105,10 +136,8 @@ let g:UltiSnipsEditSplit="vertical"
 nmap <leader>gr "*gr
 
 " Yank Highlighting
-let g:highlightedyank_highlight_duration = 1000
+let g:highlightedyank_highlight_duration = 2000
 hi HighlightedyankRegion cterm=reverse gui=reverse
-
 
 " fzf
 map ; :Files<CR>
-

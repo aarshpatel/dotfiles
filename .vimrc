@@ -12,7 +12,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
 Plug 'rakr/vim-one'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'arcticicestudio/nord-vim'
@@ -32,7 +31,13 @@ Plug 'ervandew/supertab' "Perform all your vim insert mode completions with Tab
 Plug 'airblade/vim-gitgutter' "Shows a git diff in the gutter (sign column) and stages/undoes hunks
 Plug 'machakann/vim-highlightedyank' "Make the yanked region apparent!
 Plug 'terryma/vim-multiple-cursors'
-Plug 'benmills/vimux'
+Plug 'benmills/vimux'  "Vim intergration with Tmux
+Plug 'ntpeters/vim-better-whitespace' "Remove all whitespace in a document
+Plug 'vim-syntastic/syntastic'
+Plug 'nanotech/jellybeans.vim' "Jellybeans colorscheme
+Plug 'vim-scripts/candyman.vim'  "Candyman colorscheme
+Plug 'mbbill/undotree/' "Builds an undotree (you can revert back at any point)
+Plug '/elzr/vim-json' "Better syntax highlighting for vim
 call plug#end()
 
 " The Basics
@@ -59,7 +64,7 @@ set termguicolors
 set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme one
+colorscheme candyman
 "set t_Co=256
 
 " Preferences
@@ -84,7 +89,7 @@ set splitright
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='one'
+let g:airline_theme='powerlineish'
 
 
 " Disable arrow keys
@@ -97,12 +102,12 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
-
 "Vimux
 " make the split take up 40% of the terminal screen
 let g:VimuxHeight = "50"
 " open a horizontal split
 let g:VimuxOrientation = "h"
+
 " Close the vimux pane
 map <Leader>vq :VimuxCloseRunner<CR>
 " Prompt for a command to run
@@ -111,12 +116,13 @@ map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vi :VimuxInspectRunner<CR>
 " Zoom the runner pane (use <bind-key> z to restore runner pane)
 map <Leader>vz :call VimuxZoomRunner()<CR>
-" Running Python Scripts
-map <Leader>vpy :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
 " Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
+
 " Running NodeJS Scripts
 map <Leader>vn :call VimuxRunCommand("clear; node " . bufname("%"))<CR>
+" Running Python Scripts
+map <Leader>vpy :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
 
 function! VimuxSlime()
     call VimuxSendText(@v)
@@ -133,7 +139,7 @@ nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsEditSplit="nord"
 
 " Replace with Register
 nmap <leader>gr "*gr
@@ -144,3 +150,22 @@ hi HighlightedyankRegion cterm=reverse gui=reverse
 
 " fzf
 map ; :Files<CR>
+
+" Searching
+set hlsearch
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" Better Whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
+" Undotree
+nnoremap <F5> :UndotreeToggle<cr>
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
+
+" JSON highlighting
+autocmd BufNewFile,BufRead *.json set ft=javascript
+

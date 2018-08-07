@@ -1,44 +1,5 @@
 " Plugins
-call plug#begin("~/.vim/plugged")
-Plug 'sheerun/vim-polyglot'
-Plug 'trevordmiller/nova-vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'tpope/vim-surround'
-Plug 'rakr/vim-one'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'arcticicestudio/nord-vim'
-Plug 'davidhalter/jedi-vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'altercation/vim-colors-solarized'
-Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-fugitive'
-Plug 'tmhedberg/SimpylFold'
-Plug 'derekprior/vim-trimmer'
-Plug 'tommcdo/vim-exchange'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-line'
-Plug 'ervandew/supertab' "Perform all your vim insert mode completions with Tab
-Plug 'airblade/vim-gitgutter' "Shows a git diff in the gutter (sign column) and stages/undoes hunks
-Plug 'machakann/vim-highlightedyank' "Make the yanked region apparent!
-Plug 'terryma/vim-multiple-cursors'
-Plug 'benmills/vimux'  "Vim intergration with Tmux
-Plug 'ntpeters/vim-better-whitespace' "Remove all whitespace in a document
-Plug 'vim-syntastic/syntastic'
-Plug 'nanotech/jellybeans.vim' "Jellybeans colorscheme
-Plug 'vim-scripts/candyman.vim'  "Candyman colorscheme
-Plug 'mbbill/undotree/' "Builds an undotree (you can revert back at any point)
-Plug '/elzr/vim-json' "Better syntax highlighting for vim
-call plug#end()
+so ~/.vim/plugins.vim
 
 " The Basics
 filetype plugin indent on
@@ -64,7 +25,7 @@ set termguicolors
 set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme candyman
+colorscheme jellybeans
 "set t_Co=256
 
 " Preferences
@@ -89,7 +50,7 @@ set splitright
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='powerlineish'
+let g:airline_theme='jellybeans'
 
 
 " Disable arrow keys

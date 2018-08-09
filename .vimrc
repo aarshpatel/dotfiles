@@ -25,7 +25,7 @@ set termguicolors
 set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme jellybeans
+colorscheme badwolf
 "set t_Co=256
 
 " Preferences
@@ -50,7 +50,7 @@ set splitright
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='jellybeans'
+let g:airline_theme='badwolf'
 
 
 " Disable arrow keys
@@ -119,14 +119,4 @@ set hlsearch
 " Better Whitespace
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-
-" Undotree
-nnoremap <F5> :UndotreeToggle<cr>
-if has("persistent_undo")
-    set undodir=~/.undodir/
-    set undofile
-endif
-
-" JSON highlighting
-autocmd BufNewFile,BufRead *.json set ft=javascript
 

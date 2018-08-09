@@ -35,8 +35,8 @@ Plug 'ntpeters/vim-better-whitespace' "Remove all whitespace in a document
 Plug 'vim-syntastic/syntastic'
 Plug 'nanotech/jellybeans.vim' "Jellybeans colorscheme
 Plug 'vim-scripts/candyman.vim'  "Candyman colorscheme
-Plug 'mbbill/undotree/' "Builds an undotree (you can revert back at any point)
 Plug '/elzr/vim-json' "Better syntax highlighting for vim
 Plug 'posva/vim-vue' " Vue JS synatx highlighting
 Plug 'mattn/emmet-vim'
+Plug 'sjl/badwolf'
 call plug#end()

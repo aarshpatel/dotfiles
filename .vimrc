@@ -1,25 +1,34 @@
-" Plugins
+"=====================================================
+"" Plugins
+"=====================================================
 so ~/.vim/plugins.vim
 
-" The Basics
+"=====================================================
+"" General settings
+"=====================================================
 filetype plugin indent on
-syntax on set number
-set relativenumber
-set ignorecase
-set smartcase
-set nohlsearch
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set nobackup
-set noswapfile
-set nowrap
-set cursorline
-set autoread
-set updatetime=100
-set re=1
+syntax   on set number
+set      relativenumber
+set      ignorecase
+set      smartcase
+set      nohlsearch
+set      tabstop=4
+set      shiftwidth=4
+set      expandtab
+set      nobackup
+set      noswapfile
+set      nowrap
+set      cursorline
+set      autoread
+set      updatetime=100
+set      re=1
+set      encoding=UTF-8
+let mapleader = ","
+let maplocalleader = "\\"
 
-" Colorscheme
+"=====================================================
+"" Colorscheme
+"=====================================================
 syntax enable
 set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -27,20 +36,19 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 let ayucolor="mirage" " for mirage version of theme
 colorscheme ayu
+set t_Co=256
 
-"set t_Co=256
-
-" Preferences
-let mapleader = ","
-let maplocalleader = "\\"
-
-" Nerdtree
+"=====================================================
+"" Nerdtree
+"=====================================================
 map <C-e> :NERDTreeToggle<CR>
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeChDirMode=2
 
-" Split Navigation
+"=====================================================
+"" Split Navigation
+"=====================================================
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -48,15 +56,18 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
-" Vim Airline
+"=====================================================
+"" Airline
+"=====================================================
 let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='one'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ":t"
+let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline_theme='ayu'
 
-
-
-" Disable arrow keys
+"=====================================================
+"" Disable Arrow Keys (hard mode)
+"=====================================================
 noremap  <Up> ""
 noremap! <Up> <Esc>
 noremap  <Down> ""
@@ -66,63 +77,88 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 
-"Vimux
-" make the split take up 40% of the terminal screen
-let g:VimuxHeight = "50"
-" open a horizontal split
-let g:VimuxOrientation = "h"
+"=====================================================
+"" Vimux
+"=====================================================
+so ~/.vim/vimux.vim
 
-" Close the vimux pane
-map <Leader>vq :VimuxCloseRunner<CR>
-" Prompt for a command to run
-map <Leader>vp :VimuxPromptCommand<CR>
-" Inspect runner pane
-map <Leader>vi :VimuxInspectRunner<CR>
-" Zoom the runner pane (use <bind-key> z to restore runner pane)
-map <Leader>vz :call VimuxZoomRunner()<CR>
-" Run last command executed by VimuxRunCommand
-map <Leader>vl :VimuxRunLastCommand<CR>
-
-" Running NodeJS Scripts
-map <Leader>vn :call VimuxRunCommand("clear; node " . bufname("%"))<CR>
-" Running Python Scripts
-map <Leader>vpy :call VimuxRunCommand("clear; python " . bufname("%"))<CR>
-
-function! VimuxSlime()
-    call VimuxSendText(@v)
-    call VimuxSendKeys("Enter")
-endfunction
-
-" If text is selected, save it in the v buffer and send that buffer it to tmux
-vmap <LocalLeader>vs "vy :call VimuxSlime()<CR>
-" Select current paragraph and send it to tmux
-nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
-
-
-" UtilSnippets
+"=====================================================
+"" Ultisnippets
+"=====================================================
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<tab-z>"
 let g:UltiSnipsEditSplit="one"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
-" Replace with Register
+"=====================================================
+"" Replace with Register
+"=====================================================
 nmap <leader>gr "*gr
 
-" Yank Highlighting
+"=====================================================
+"" Yank Highlighting
+"=====================================================
 let g:highlightedyank_highlight_duration = 2000
 hi HighlightedyankRegion cterm=reverse gui=reverse
 
-" fzf
+"=====================================================
+"" Fzf
+"=====================================================
 map ; :Files<CR>
 
-" Searching
+"=====================================================
+"" Searching
+"=====================================================
 set hlsearch
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" Better Whitespace
+"=====================================================
+"" Better Whitespace
+"=====================================================
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
-" Run python/node on the script
- map <Leader>n :!clear; node "%"<CR>
- map <Leader>p :!clear; python "%"<CR>
+"=====================================================
+"" Running Python/Node scripts
+"=====================================================
+map <Leader>n :!clear; node "%"<CR>
+map <Leader>p :!clear; python "%"<CR>
+
+"=====================================================
+"" Easy Align
+"=====================================================
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+"=====================================================
+"" Task List
+"=====================================================
+map <leader>tl <Plug>TaskList
+let g:tlWindowPosition = 1
+
+"=====================================================
+"" Comfortable Motion
+"=====================================================
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
+
+"=====================================================
+"" DevIcons
+"=====================================================
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+
+"=====================================================
+"" NerdCommenter
+"=====================================================
+let g:NERDSpaceDelims = 1
+
+"=====================================================
+"" NerdTree File Highlighting
+"=====================================================
+so ~/.vim/nerdtree_highlighting.vim

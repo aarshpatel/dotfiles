@@ -2,3 +2,4 @@
 
 ### Tmux
 ### Vim
+### Fish Shell

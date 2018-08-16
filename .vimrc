@@ -17,15 +17,17 @@ set nowrap
 set cursorline
 set autoread
 set updatetime=100
-
+set re=1
 
 " Colorscheme
 syntax enable
-set termguicolors
 set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorscheme badwolf
+set termguicolors
+let ayucolor="mirage" " for mirage version of theme
+colorscheme ayu
+
 "set t_Co=256
 
 " Preferences
@@ -48,9 +50,10 @@ set splitright
 
 " Vim Airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline_theme='badwolf'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#fnamemod = ":t"
+let g:airline_theme='one'
+
 
 
 " Disable arrow keys
@@ -100,7 +103,7 @@ nmap <LocalLeader>vs vip<LocalLeader>vs<CR>
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsEditSplit="nord"
+let g:UltiSnipsEditSplit="one"
 
 " Replace with Register
 nmap <leader>gr "*gr
@@ -120,3 +123,6 @@ set hlsearch
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
+" Run python/node on the script
+ map <Leader>n :!clear; node "%"<CR>
+ map <Leader>p :!clear; python "%"<CR>

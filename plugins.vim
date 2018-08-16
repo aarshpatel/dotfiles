@@ -32,11 +32,18 @@ Plug 'machakann/vim-highlightedyank' "Make the yanked region apparent!
 Plug 'terryma/vim-multiple-cursors'
 Plug 'benmills/vimux'  "Vim intergration with Tmux
 Plug 'ntpeters/vim-better-whitespace' "Remove all whitespace in a document
-Plug 'vim-syntastic/syntastic'
 Plug 'nanotech/jellybeans.vim' "Jellybeans colorscheme
 Plug 'vim-scripts/candyman.vim'  "Candyman colorscheme
 Plug '/elzr/vim-json' "Better syntax highlighting for vim
 Plug 'posva/vim-vue' " Vue JS synatx highlighting
 Plug 'mattn/emmet-vim'
 Plug 'sjl/badwolf'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'tomasr/molokai'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Alvarocz/vim-northpole'
+Plug 'ayu-theme/ayu-vim'
+Plug 'christoomey/vim-titlecase'
 call plug#end()

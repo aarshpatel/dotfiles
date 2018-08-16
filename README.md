@@ -4,6 +4,7 @@
 ### Vim
 ### Fish Shell
 
+### Current VIM Plugins
 - 'sheerun/vim-polyglot'
 - 'trevordmiller/nova-vim'
 - 'zchee/deoplete-jedi'

@@ -1,3 +1,4 @@
+" TODO: Add descriptions for each plugin
 call plug#begin("~/.vim/plugged")
 Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'

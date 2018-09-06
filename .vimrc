@@ -23,6 +23,7 @@ set      autoread
 set      updatetime=100
 set      re=1
 set      encoding=UTF-8
+set      colorcolumn=80
 let mapleader = ","
 let maplocalleader = "\\"
 
@@ -31,11 +32,11 @@ let maplocalleader = "\\"
 "=====================================================
 syntax enable
 set background=dark
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-let ayucolor="mirage" " for mirage version of theme
-colorscheme ayu
+" let ayucolor="mirage"
+colorscheme one
 set t_Co=256
 
 "=====================================================
@@ -60,10 +61,10 @@ set splitright
 "" Airline
 "=====================================================
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ":t"
-let g:airline#extensions#tabline#formatter='unique_tail'
-let g:airline_theme='ayu'
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#fnamemod = ":t"
+" let g:airline#extensions#tabline#formatter='unique_tail'
+let g:airline_theme='one'
 
 "=====================================================
 "" Disable Arrow Keys (hard mode)
@@ -121,11 +122,11 @@ let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
 
 "=====================================================
-"" Running Python/Node scripts
+"" Running Python/Node/Go scripts
 "=====================================================
 map <Leader>n :!clear; node "%"<CR>
 map <Leader>p :!clear; python "%"<CR>
-
+map <Leader>g :!clear; go run "%"<CR>
 "=====================================================
 "" Easy Align
 "=====================================================

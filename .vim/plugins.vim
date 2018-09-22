@@ -1,4 +1,3 @@
-" TODO: add descriptions for each plugin
 call plug#begin("~/.vim/plugged")
 Plug 'sheerun/vim-polyglot'
 Plug 'trevordmiller/nova-vim'
@@ -7,6 +6,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-surround'
@@ -50,4 +50,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'fisadev/FixedTaskList.vim'
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'fatih/vim-go'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'vim-latex/vim-latex'
 call plug#end()

@@ -37,7 +37,7 @@ let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 " let ayucolor="dark"
 set t_Co=256
-colorscheme atom-dark
+colorscheme nord
 
 "=====================================================
 "" Nerdtree
@@ -64,7 +64,7 @@ let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#fnamemod = ":t"
 " let g:airline#extensions#tabline#formatter='unique_tail'
-let g:airline_theme='jellybeans'
+let g:airline_theme='nord'
 
 "=====================================================
 "" Disable Arrow Keys (hard mode)

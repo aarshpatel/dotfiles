@@ -1,5 +1,11 @@
 # Dotfiles
 
+# Install
+First install tmux using **brew** and then copy the .vimrc and .tmux.conf into the
+root directory `~`. Then make a `./vim/` folder and copy the `plugins.vim` file inside that folder
+and install Vim-Plug (https://github.com/junegunn/vim-plug). Open the `plugins.vim` file and 
+run `:PlugInstall` to install the plugins
+
 ### Tmux
 ### Vim
 ### Fish Shell

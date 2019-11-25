@@ -1,13 +1,10 @@
-"=====================================================
-"" Plugins
-"=====================================================
+"0 Plugins {{{
 so ~/.vim/plugins.vim
-
-"=====================================================
-"" General settings
-"=====================================================
+" 0}}}
+" General {{{
 filetype plugin indent on
-syntax   on set number
+syntax   on
+set      number
 set      relativenumber
 set      ignorecase
 set      smartcase
@@ -24,51 +21,65 @@ set      updatetime=100
 set      re=1
 set      encoding=UTF-8
 set      colorcolumn=80
+set      incsearch
+set      showcmd
+set      showmatch           " highlight matching [{()}]
+set      ruler               " show line and column number of the cursor on right side of statusline
+set      autowrite
+
+" }}}
+" Movement {{{
+nnoremap j gj
+nnoremap g gk
+nnoremap B ^
+nnoremap E $
+" }}}
+" Leader Key {{{
 let mapleader = ","
 let maplocalleader = "\\"
-
-"=====================================================
-"" Colorscheme
-"=====================================================
+" }}}
+" Editing Config Files {{{
+nnoremap <leader>ev :vsp ~/.vimrc<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>ep :vsp ~/.vim/plugins.vim<CR>
+nnoremap <leader>et :vsp ~/.tmux.conf<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
+" }}}
+" Folding Settings {{{
+set foldenable
+set foldlevelstart=10   " open most folds by default
+set foldnestmax=10      " 10 nested fold max
+nnoremap <space> za
+set foldmethod=indent   " fold based on indent level
+set foldmethod=marker
+set foldlevel=0
+set modelines=1
+" }}}
+" Colorscheme {{{
 syntax enable
 set background=dark
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-" let ayucolor="dark"
 set t_Co=256
-colorscheme atom-dark
-
-"=====================================================
-"" Nerdtree
-"=====================================================
-map <C-e> :NERDTreeToggle<CR>
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
-let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
-let g:NERDTreeChDirMode=2
-
-"=====================================================
-"" Split Navigation
-"=====================================================
+colorscheme nord
+" }}}
+" Split Navigation {{{
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
-
-"=====================================================
-"" Airline
-"=====================================================
+" }}}
+" Airline {{{
 let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
+" 3et g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#fnamemod = ":t"
 " let g:airline#extensions#tabline#formatter='unique_tail'
-let g:airline_theme='jellybeans'
-
-"=====================================================
-"" Disable Arrow Keys (hard mode)
-"=====================================================
+let g:airline_theme='nord'
+" }}}
+" Hard Mode (Enforcing Purity) {{{
 noremap  <Up> ""
 noremap! <Up> <Esc>
 noremap  <Down> ""
@@ -77,95 +88,80 @@ noremap  <Left> ""
 noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
-
-"=====================================================
-"" Vimux
-"=====================================================
+" }}}
+" Vimux {{{
 so ~/.vim/vimux.vim
-
-"=====================================================
-"" Ultisnippets
-"=====================================================
+" }}}
+" Ultisnippets{{{
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<tab-z>"
 let g:UltiSnipsEditSplit="one"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
-
-"=====================================================
-"" Replace with Register
-"=====================================================
+" }}}
+" Replace with Register {{{
 nmap <leader>gr "*gr
-
-"=====================================================
-"" Yank Highlighting
-"=====================================================
+" }}}
+" Yank Highlighting {{{
 let g:highlightedyank_highlight_duration = 2000
 hi HighlightedyankRegion cterm=reverse gui=reverse
-
-"=====================================================
-"" Fzf
-"=====================================================
+" }}}
+" Fzf {{{
 map ; :Files<CR>
-
-"=====================================================
-"" Searching
-"=====================================================
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+map <leader>l :Lines<cr>
+map <leader>b :Buffers<cr>
+" }}}
+" Searching {{{
 set hlsearch
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
-"=====================================================
-"" Better Whitespace
-"=====================================================
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" }}}
+" Better Whitespace {{{
 let g:better_whitespace_enabled=1
 let g:strip_whitespace_on_save=1
-
-"=====================================================
-"" Running Python/Node/Go scripts
-"=====================================================
-map <Leader>n :!clear; node "%"<CR>
-map <Leader>p :!clear; python "%"<CR>
-map <Leader>g :!clear; go run "%"<CR>
-"=====================================================
-"" Easy Align
-"=====================================================
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-
-"=====================================================
-"" Task List
-"=====================================================
+let g:strip_whitespace_confirm=0
+" }}}
+" Task List {{{
 map <leader>tl <Plug>TaskList
 let g:tlWindowPosition = 1
-
-"=====================================================
-"" Comfortable Motion
-"=====================================================
-let g:comfortable_motion_scroll_down_key = "j"
-let g:comfortable_motion_scroll_up_key = "k"
-
-"=====================================================
-"" DevIcons
-"=====================================================
-let g:webdevicons_enable = 1
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-
-"=====================================================
-"" NerdCommenter
-"=====================================================
+" }}}
+" NerdCommenter {{{
 let g:NERDSpaceDelims = 1
-
-"=====================================================
-"" NerdTree File Highlighting
-"=====================================================
-so ~/.vim/nerdtree_highlighting.vim
-
-"=====================================================
-autocmd Filetype tex setl updatetime=1
-let g:livepreview_previewer = 'open -a Preview'
-map <Leader>l :LLPStartPreview<CR>
-"=====================================================
+" }}}
+" Tmux Configuration {{{
+if exists("$TMUX")
+    set term=screen-256color
+endif
+" }}}
+" Goyo Configuration {{{
+map <leader>g :Goyo<CR>
+let g:goyo_width = 125
+" }}}
+" Grip Configuration {{{
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Google Chrome'
+" }}}
+" Highlighting Yank Configuration {{{
+if !exists('##TextYankPost')
+  map y <Plug>(highlightedyank)
+endif
+" }}}
+" Mappings {{{
+map <leader>e cx
+map <leader>i :PlugInstall<cr>
+map <leader>s :w<cr>
+map <leader>w <c-w>o
+" }}}
+" AutoCommands {{{
+augroup every
+  autocmd!
+  au InsertEnter * set norelativenumber
+  au InsertLeave * set relativenumber
+augroup END
+" }}}
+" Persistent Undo {{{
+set undodir=~/.vim/undodir
+set undofile
+" }}}
+"vim:foldmethod=marker:foldlevel=0

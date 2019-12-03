@@ -1,0 +1,7 @@
+{
+    "prettier.requireConfig": true,
+    "python.jediEnabled": false,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "python"
+    ]
+}

@@ -1,10 +1,13 @@
 alias hb="ssh hover_bastion"
 alias dd="ssh dev_desktop"
-alias zshrc="vim ~/.zshrc"
+alias zshrc="nvim ~/.zshrc"
+alias mux="nvim ~/.tmux.conf"
 alias srczshrc="source ~/.zshrc"
 alias l='colorls --group-directories-first --almost-all'
 alias ll='colorls --group-directories-first --almost-all --long' # detailed list view
-alias vimrc="vim ~/.vimrc"
+alias vimrc="nvim ~/.config/nvim/init.vim"
 alias :q=exit
 alias cat=bat
+alias aliasrc="nvim ~/.config/aliasrc"
+alias bip="brew install "
 alias ls="colorls -A"

@@ -105,20 +105,6 @@ export EDITOR='vim'
 # Tmuxinator
 source ~/.bin/tmuxinator.zsh
 
-# Attach or create tmux session named the same as the current directory
-source ~/tat.sh
-
-# Always have TMUX running
-_not_inside_tmux() { [[ -z "$TMUX" ]] }
-
-ensure_tmux_is_running() {
-    if _not_inside_tmux; then
-        tat
-    fi
-}
-# ensure tmux is always running
-ensure_tmux_is_running
-
 # Vi Mode
 bindkey -v # vim mode (ESC key ==> Normal)
 
@@ -142,8 +128,8 @@ export KEYTIMEOUT=1 # kill the lag
 [ -f "$HOME/.config/aliasrc"  ] && source "$HOME/.config/aliasrc"
 
 # fzf
-export FZF_DEFAULT_COMMAND='find .'
-export BAT_THEME="TwoDark"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export BAT_THEME="Sublime Snazzy"
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 [ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
 

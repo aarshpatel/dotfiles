@@ -1,10 +1,17 @@
 # Dotfiles
 
-### Tmux
-### Vim
-### Fish Shell
+## Install
+First install tmux using **brew** and then copy the .vimrc and .tmux.conf into the
+root directory `~`. Then make a `./vim/` folder and copy the `plugins.vim` file inside that folder
+and install Vim-Plug (https://github.com/junegunn/vim-plug). Open the `plugins.vim` file and 
+run `:PlugInstall` to install the plugins
 
-### Current VIM Plugins
+## Current Config Files
+* Tmux
+* Vim
+* Fish Shell
+
+## Current VIM Plugins
 - 'sheerun/vim-polyglot': Collection of Language packs
 - 'trevordmiller/nova-vim': Nova colorscheme
 - 'scrooloose/nerdtree': A tree explorer plugin for vim

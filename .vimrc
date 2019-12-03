@@ -26,13 +26,16 @@ set      showcmd
 set      showmatch           " highlight matching [{()}]
 set      ruler               " show line and column number of the cursor on right side of statusline
 set      autowrite
-
 " }}}
 " Movement {{{
 nnoremap j gj
 nnoremap g gk
 nnoremap B ^
 nnoremap E $
+nnoremap J 5j
+nnoremap K 5k
+vnoremap J 5j
+vnoremap K 5k
 " }}}
 " Leader Key {{{
 let mapleader = ","
@@ -112,6 +115,8 @@ map ; :Files<CR>
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 map <leader>l :Lines<cr>
 map <leader>b :Buffers<cr>
+map <leader>L :BLines<cr>
+map <leader>m :Maps<cr>
 " }}}
 " Searching {{{
 set hlsearch
@@ -144,7 +149,7 @@ let vim_markdown_preview_browser='Google Chrome'
 " }}}
 " Highlighting Yank Configuration {{{
 if !exists('##TextYankPost')
-  map y <Plug>(highlightedyank)
+    map y <Plug>(highlightedyank)
 endif
 " }}}
 " Mappings {{{
@@ -152,16 +157,28 @@ map <leader>e cx
 map <leader>i :PlugInstall<cr>
 map <leader>s :w<cr>
 map <leader>w <c-w>o
+map <leader>\ :vsp<cr>
+map <leader>- :sp<cr>
 " }}}
 " AutoCommands {{{
 augroup every
-  autocmd!
-  au InsertEnter * set norelativenumber
-  au InsertLeave * set relativenumber
+    autocmd!
+    au InsertEnter * set norelativenumber
+    au InsertLeave * set relativenumber
 augroup END
 " }}}
 " Persistent Undo {{{
 set undodir=~/.vim/undodir
 set undofile
 " }}}
+" EasyMotion {{{
+" Press f to get to any word in the screen
+nmap f <Plug>(easymotion-bd-w)
+vmap f <Plug>(easymotion-bd-w)
+"}}}
+" Eunuch {{{
+map <leader>M :Move<space>
+map <leader>D :Delete<space>
+map <leader>mk :Mkdir<space>
+"}}}
 "vim:foldmethod=marker:foldlevel=0

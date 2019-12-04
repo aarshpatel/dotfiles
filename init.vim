@@ -71,7 +71,7 @@ set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-colorscheme solarized8
+colorscheme palenight
 " }}}
 " Split Navigation {{{
 nnoremap <C-J> <C-W><C-J>
@@ -83,7 +83,7 @@ set splitright
 " }}}
 " Lightline {{{
 let g:lightline = {
-  \ 'colorscheme': 'solarized',
+  \ 'colorscheme': 'palenight',
   \ 'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
   \ 'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \ }
@@ -117,18 +117,18 @@ let g:highlightedyank_highlight_duration = 2000
 hi HighlightedyankRegion cterm=reverse gui=reverse
 " }}}
 " Fzf {{{
-let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-nmap <space><space> :Files<CR>
+nmap F :Files<CR>
 nmap <leader>l :Lines<cr>
-map <leader>b :Buffers<cr>
+nmap <leader>b :Buffers<cr>
 nmap <leader>bl :BLines<cr>
-map <leader>m :Maps<cr>
-map <leader>h :FZFMru<cr>
-map <leader>bt :BTags<cr>
-map <leader>t :Tags<cr>
-map <leader>/ :Ag<space>
+nmap <leader>m :Maps<cr>
+nmap <leader>h :FZFMru<cr>
+nmap <leader>bt :BTags<cr>
+nmap <leader>t :Tags<cr>
+nmap <leader>/ :Ag<space>
 nnoremap <leader>/ :Rg<space>
-nnoremap <silent> <leader><space> :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <leader>F :Files <C-r>=expand("%:h")<CR>/<CR>
+" }}}
 " Searching {{{
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
@@ -181,7 +181,6 @@ endif
 " Mappings {{{
 map <leader>e cx
 map <leader>i <leader>sv :PlugInstall<cr>
-map <leader><leader> :w<cr>
 map <leader>w <c-w>o
 map <leader>\ :vsp<cr>
 map <leader>- :sp<cr>

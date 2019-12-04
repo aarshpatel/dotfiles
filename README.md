@@ -1,5 +1,9 @@
 # Dotfiles
 
+## Update
+Now I am using NeoVIM and the configuration of the neovim is the `init.vim` file with the plugins.vim and `plugins/` folder
+contaning the plugins used in nvim
+
 ## Install
 First install tmux using **brew** and then copy the .vimrc and .tmux.conf into the
 root directory `~`. Then make a `./vim/` folder and copy the `plugins.vim` file inside that folder

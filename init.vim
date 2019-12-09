@@ -1,3 +1,7 @@
+" (NeoVim) Configuration
+" By Aarsh Patel
+" December 2019
+
 " Plugins {{{
 so ~/.config/nvim/plugins.vim
 "}}}
@@ -71,7 +75,7 @@ set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-colorscheme solarized8
+colorscheme one
 " }}}
 " Split Navigation {{{
 nnoremap <C-J> <C-W><C-J>
@@ -83,22 +87,21 @@ set splitright
 " }}}
 " Lightline {{{
 let g:lightline = {
-  \ 'colorscheme': 'solarized',
+  \ 'colorscheme': 'one',
   \ 'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
   \ 'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \ }
 " }}}
-" Hard Mode (Enforcing Purity) {{{
-noremap  <Up> ""
-noremap! <Up> <Esc>
-noremap  <Down> ""
-noremap! <Down> <Esc>
-noremap  <Left> ""
-noremap! <Left> <Esc>
-noremap  <Right> ""
-noremap! <Right> <Esc>
-" }}}
-" Vimux {{{
+    " Hard Mode (Enforcing Purity) {{{
+    noremap  <Up> ""
+    noremap! <Up> <Esc>
+    noremap  <Down> ""
+    noremap! <Down> <Esc>
+    noremap  <Left> ""
+    noremap! <Left> <Esc>
+    noremap  <Right> ""
+    noremap! <Right> <Esc>
+    " }}} Vimux {{{
 so ~/.vim/vimux.vim
 " }}}
 " Ultisnippets{{{
@@ -181,13 +184,15 @@ endif
 " Mappings {{{
 map <leader>e cx
 map <leader>i <leader>sv :PlugInstall<cr>
-map <leader><leader> :w<cr>
-map <leader>w <c-w>o
 map <leader>\ :vsp<cr>
 map <leader>- :sp<cr>
 map <leader>q :q<cr>
+map <leader><w> :w!<cr>
 map <leader>p :w<cr>:! python3 %<cr>
-map <leader>dw :g/^$/d<cr>
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
+nmap ; :
+noremap ;; ;
 " }}}
 " AutoCommands {{{
 augroup every
@@ -201,6 +206,7 @@ autocmd FileType yaml set tabstop=2 shiftwidth=2 colorcolumn=
 autocmd FileType sh setlocal colorcolumn= expandtab shiftwidth=4 tabstop=8 softtabstop=4
 autocmd FileType vim setlocal colorcolumn= shiftwidth=4 tabstop=8 softtabstop=4
 autocmd FileType markdown setlocal colorcolumn= shiftwidth=4 tabstop=8 softtabstop=4
+autocmd FileType tmux setlocal colorcolumn= shiftwidth=4 tabstop=8 softtabstop=4
 " }}}
 " Persistent Undo {{{
 set undodir=~/.vim/undodir

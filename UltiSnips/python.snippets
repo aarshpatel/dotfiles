@@ -1,0 +1,166 @@
+# Snippet to add a docstring to the top of the file
+snippet doc "Add a docstring to the top of the file" b
+"""
+${1:docstring}
+"""
+$0
+endsnippet
+
+# Snippet to add argparse arguments to the python script
+snippet arguments "Add arguments (argparse) arguments in the python file" b
+parser.add_argument("--${1}", type=${2}, help="${3}")$0
+
+endsnippet
+
+# Snippet for the with context manager
+snippet with "with open" b
+with open(f"${1}", "${2}") as ${3}:
+	$0
+endsnippet
+
+# Snippet to add :param to the python function docstring
+snippet param ":param in function docstring" b
+:param ${1:param}: ${2:description}
+endsnippet
+
+# Snippet to add if __name__ == "__main__"
+snippet ifname  "if __name__ == __main__" b
+if __name__ == "__main__":
+	$0
+endsnippet
+
+# Snippet to add import
+snippet import "import python module" b
+import ${1:module} $0
+endsnippet
+
+# Snippet to add import from
+snippet fimport "from .. import .." b
+from ${1:module} import ${2:function} $0
+endsnippet
+
+# Snippet to add import as
+snippet importas "import ... as ..." b
+import ${1:module} as ${2:name} $0
+endsnippet
+
+# Snippets for simple loops
+snippet simplefor "simple for loop in python" b
+for ${1:var_name} in ${2:iterable}:
+	$0
+endsnippet
+
+# Snippet for dict loops
+snippet dictfor "for loops over dictionaries" b
+for ${1: key}, ${2: value} in ${3:iterable}.items():
+	$0
+endsnippet
+
+# Snippet for iterables with enumerate
+snippet enumfor "for loops with enumerate" b
+for idx, ${1:name} in enumerate(${2:iterable}):
+	$0
+endsnippet
+
+# Snippet to create empty dict
+snippet dict "empty dict" b
+{${1:key}:${2:value}$0}
+endsnippet
+
+snippet key "key:value pair in dict" b
+"${1:key}": "${2:value}"$0
+endsnippet
+
+# Snippet for printing
+snippet p "print" b
+print(${1:print})$0
+endsnippet
+
+# Snippet for fprint
+snippet fp "frpint" b
+print(f"${1:print}")$0
+endsnippet
+
+# Snippet for list comprehension
+snippet lc "list comprehension" b
+${1:var_name} = [${4:out} for ${2:var} in ${3:iterable}]$0
+endsnippet
+
+# Snippet for dict comprehension
+snippet dc "dict comprehension" b
+${1:var_name} = {${5:out} for ${2:key}, ${3:value} in ${4:iterable}.items()}$0
+endsnippet
+
+# Snippet for if statement
+snippet if "if statement" b
+if ${1:condition}:
+	$0
+endsnippet
+
+# Snippet for if-elif-else statements
+snippet ifelifelse "if-elif-else statement" b
+if ${1:condition}:
+	${2:if_conditional}
+elif ${3:condition}:
+	${4:elif_conditional}
+else:
+	${5:else_conditional}
+$0
+endsnippet
+
+# Snippet for function definition
+snippet def "def statement" b
+def ${1:name}(${2:params}):
+	"""
+	${3:doctstring}
+
+	${4:params}
+	:returns: ${5:return}
+	"""
+	$0
+endsnippet
+
+# Snippet to set empty dict
+snippet dictset "empty dict for variable" b
+${1:var_name} = {}$0
+endsnippet
+
+# Snippet to set empty list
+snippet listset "empty list for variable" b
+${1:var_name} = []$0
+endsnippet
+
+# Snippet for ternary operator
+snippet to "ternary operator" b
+${1:var_name} = ${2:true_output} if ${3:condition} else ${4:false_output}
+endsnippet
+
+# Snippet for Dummy Text (Lorem Ipsum)
+snippet lorem "lorem ipsum" d
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+Nam euismod fermentum ultrices. \
+Integer molestie orci id congue molestie.\
+Duis scelerisque arcu vel neque dignissim,\
+tincidunt convallis arcu dictum."
+endsnippet
+
+# Snippet for python Classes
+snippet class "class" b
+class ${1:class_name}(${2:object}):
+	"""
+	${4: docstring}
+	"""
+	def __init__(self, ${3:args}):
+		$0
+endsnippet
+
+# Snippet for Try-Except block
+snippet try "try-except block" b
+try:
+	${1:try}
+except ${2:error}:
+	${3:except}
+else:
+	${4:else}
+$0
+endsnippet

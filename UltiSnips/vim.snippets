@@ -1,0 +1,26 @@
+# Snippet for creating maps,nnoremap, nmap, vnmap
+snippet keymap "map a key command" b
+${1: map} ${2:to} ${3:from} $0
+endsnippet
+
+# Snippet for autocmd for different filetypes
+snippet autocmd "autocmd" b
+autocmd FileType ${1:file} ${2:settings}
+endsnippet
+
+# Snippet for creating .vimrc fold settings
+snippet section "adding a section to the vimrc" b
+" ${1: name} {{{
+$0
+" }}}
+endsnippet
+
+# Snippet for setting different configurations
+snippet set "add a set configuration" b
+set ${1:settings}=${2:value}$0
+endsnippet
+
+# Snippet to add plugins
+snippet plug "add plug to the plugins file" b
+Plug '${1: link}'$0
+endsnippet

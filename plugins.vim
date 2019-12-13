@@ -1,9 +1,9 @@
 call plug#begin("~/.config/nvim/bundle")
+so ~/.config/nvim/plugins/misc.vim
 so ~/.config/nvim/plugins/colorschemes.vim
 so ~/.config/nvim/plugins/text_objects.vim
 so ~/.config/nvim/plugins/fuzzy_searching.vim
 so ~/.config/nvim/plugins/autocomplete.vim
-so ~/.config/nvim/plugins/misc.vim
 so ~/.config/nvim/plugins/snippets.vim
 so ~/.config/nvim/plugins/syntax.vim
 call plug#end()

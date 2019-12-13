@@ -11,3 +11,5 @@ alias cat=bat
 alias aliasrc="nvim ~/.config/aliasrc"
 alias bip="brew install "
 alias ls="colorls -A"
+alias vim="nvim"
+alias vi="nvim"

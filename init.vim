@@ -8,31 +8,31 @@ so ~/.config/nvim/plugins.vim
 " General {{{
 filetype plugin indent on
 syntax   on
-set      number
-set      relativenumber
-set      ignorecase
-set      smartcase
-set      nohlsearch
-set      tabstop=4
-set      shiftwidth=4
+set      autoread
+set      autowrite           " automatically save files when switching buffers
+set      colorcolumn=80
+set      cursorline
+set      encoding=UTF-8
 set      expandtab
+set      ignorecase
+set      incsearch
+set      laststatus=2
+set      lazyredraw
 set      nobackup
+set      nohlsearch
 set      noswapfile
 set      nowrap
-set      autoread
-set      updatetime=100
-set      encoding=UTF-8
-set      colorcolumn=80
-set      incsearch
+set      number
+set      re=1
+set      relativenumber
 set      ruler               " show line and column number of the cursor on right side of statusline
+set      shiftwidth=4
 set      showcmd
 set      showmatch           " highlight matching [{()}]
-set      cursorline
-set      autowrite           " automatically save files when switching buffers
-set      re=1
-set      laststatus=2
+set      smartcase
+set      tabstop=4
+set      updatetime=100
 set      wildmenu
-set      lazyredraw
 " }}}
 " Leader Key {{{
 let mapleader = ","
@@ -49,24 +49,24 @@ nnoremap $ <nop>
 nnoremap ^ <nop>
 " }}}
 " Editing Config Files {{{
-nnoremap <leader>ev :vsp ~/.config/nvim/init.vim<CR>
-nnoremap <leader>Ev :e ~/.config/nvim/init.vim<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>Ez :e ~/.zshrc<CR>
-nnoremap <leader>ep :vsp ~/.config/nvim/plugins.vim<CR>
 nnoremap <leader>Ep :e ~/.config/nvim/plugins.vim<CR>
-nnoremap <leader>et :vsp ~/.tmux.conf<CR>
+nnoremap <leader>ep :vsp ~/.config/nvim/plugins.vim<CR>
 nnoremap <leader>Et :e ~/.tmux.conf<CR>
+nnoremap <leader>et :vsp ~/.tmux.conf<CR>
+nnoremap <leader>Ev :e ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ev :vsp ~/.config/nvim/init.vim<CR>
+nnoremap <leader>Ez :e ~/.zshrc<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
 " }}}
 " Folding Settings {{{
-set foldenable
-set foldlevelstart=10   " open most folds by default
-set foldnestmax=10      " 10 nested fold max
 nnoremap <space> za
+set foldenable
+set foldlevel=0
+set foldlevelstart=10   " open most folds by default
 set foldmethod=indent   " fold based on indent level
 set foldmethod=marker
-set foldlevel=0
+set foldnestmax=10      " 10 nested fold max
 set modelines=1
 " }}}
 " Colorscheme {{{
@@ -75,11 +75,7 @@ set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-<<<<<<< HEAD
-colorscheme one
-=======
-colorscheme palenight
->>>>>>> 0a3266e4f3119b72df3750af743fb310f97ffcfd
+colorscheme space_vim_theme
 " }}}
 " Split Navigation {{{
 nnoremap <C-J> <C-W><C-J>
@@ -91,33 +87,29 @@ set splitright
 " }}}
 " Lightline {{{
 let g:lightline = {
-<<<<<<< HEAD
-  \ 'colorscheme': 'one',
-=======
-  \ 'colorscheme': 'palenight',
->>>>>>> 0a3266e4f3119b72df3750af743fb310f97ffcfd
+  \ 'colorscheme': 'space_vim_theme',
   \ 'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
   \ 'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \ }
 " }}}
-    " Hard Mode (Enforcing Purity) {{{
-    noremap  <Up> ""
-    noremap! <Up> <Esc>
-    noremap  <Down> ""
-    noremap! <Down> <Esc>
-    noremap  <Left> ""
-    noremap! <Left> <Esc>
-    noremap  <Right> ""
-    noremap! <Right> <Esc>
-    " }}} Vimux {{{
+" Hard Mode (Enforcing Purity) {{{
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
+" }}} Vimux {{{
 so ~/.vim/vimux.vim
 " }}}
 " Ultisnippets{{{
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<tab-z>"
 let g:UltiSnipsEditSplit="one"
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<tab-z>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 " }}}
 " Replace with Register {{{
@@ -128,17 +120,18 @@ let g:highlightedyank_highlight_duration = 2000
 hi HighlightedyankRegion cterm=reverse gui=reverse
 " }}}
 " Fzf {{{
-nmap F :Files<CR>
+let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+nmap <space><space> :Files<CR>
 nmap <leader>l :Lines<cr>
-nmap <leader>b :Buffers<cr>
+map <leader>b :Buffers<cr>
 nmap <leader>bl :BLines<cr>
-nmap <leader>m :Maps<cr>
-nmap <leader>h :FZFMru<cr>
-nmap <leader>bt :BTags<cr>
-nmap <leader>t :Tags<cr>
-nmap <leader>/ :Ag<space>
+map <leader>m :Maps<cr>
+map <leader>h :FZFMru<cr>
+map <leader>bt :BTags<cr>
+map <leader>t :Tags<cr>
+map <leader>/ :Ag<space>
 nnoremap <leader>/ :Rg<space>
-nnoremap <silent> <leader>F :Files <C-r>=expand("%:h")<CR>/<CR>
+nnoremap <silent> <leader><space> :Files <C-r>=expand("%:h")<CR>/<CR>
 " }}}
 " Searching {{{
 set hlsearch
@@ -146,8 +139,8 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 " }}}
 " Better Whitespace {{{
 let g:better_whitespace_enabled=1
-let g:strip_whitespace_on_save=1
 let g:strip_whitespace_confirm=0
+let g:strip_whitespace_on_save=1
 " }}}
 " Task List {{{
 map <leader>tl <Plug>TaskList
@@ -190,21 +183,21 @@ if !exists('##TextYankPost')
 endif
 " }}}
 " Mappings {{{
+autocmd FileType python nmap <leader>p :w<cr>:! python3 %<cr>
+autocmd FileType python nmap <LocalLeader>a :g/parser/norm @q<cr>
+map <leader>- :sp<cr>
+map <leader><w> :w!<cr>
+map <leader>\ :vsp<cr>
+map <leader>dw :g/^$/d<cr>
 map <leader>e cx
 map <leader>i <leader>sv :PlugInstall<cr>
-<<<<<<< HEAD
-=======
-map <leader>w <c-w>o
->>>>>>> 0a3266e4f3119b72df3750af743fb310f97ffcfd
-map <leader>\ :vsp<cr>
-map <leader>- :sp<cr>
+map <leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <leader>q :q<cr>
-map <leader><w> :w!<cr>
-map <leader>p :w<cr>:! python3 %<cr>
-map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+map <leader>s :sort i<cr>
+vmap <leader>o gf<cr>
+nnoremap ; :
 nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
-nmap ; :
-noremap ;; ;
+noremap Y y$
 " }}}
 " AutoCommands {{{
 augroup every
@@ -254,5 +247,14 @@ let g:titlecase_map_keys = 0
 nmap <leader>tc <Plug>Titlecase
 vmap <leader>tc <Plug>Titlecase
 nmap <leader>tC <Plug>TitlecaseLine
+nmap <leader>tc <Plug>Titlecase
+nmap <leader>tc <Plug>Titlecase
 "}}}
+" ArgWrap {{{
+nnoremap <silent> <leader>a :ArgWrap<CR>
+"}}}
+" VimWiki {{{
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" }}}
 "vim:foldmethod=marker:foldlevel=0

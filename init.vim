@@ -87,7 +87,7 @@ set splitright
 " }}}
 " Lightline {{{
 let g:lightline = {
-  \ 'colorscheme': 'nord',
+  \ 'colorscheme': 'one',
   \ 'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
   \ 'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \ }

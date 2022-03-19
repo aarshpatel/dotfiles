@@ -1,6 +1,6 @@
 " (NeoVim) Configuration
 " By Aarsh Patel
-" December 2019
+" March 2022
 
 " Plugins {{{
 so ~/.config/nvim/plugins.vim
@@ -75,7 +75,7 @@ set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-colorscheme space_vim_theme
+colorscheme everforest
 " }}}
 " Split Navigation {{{
 nnoremap <C-J> <C-W><C-J>
@@ -87,7 +87,7 @@ set splitright
 " }}}
 " Lightline {{{
 let g:lightline = {
-  \ 'colorscheme': 'space_vim_theme',
+  \ 'colorscheme': 'nord',
   \ 'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
   \ 'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \ }

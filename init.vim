@@ -75,7 +75,7 @@ set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
-colorscheme everforest
+colorscheme palenight
 " }}}
 " Split Navigation {{{
 nnoremap <C-J> <C-W><C-J>
@@ -87,7 +87,7 @@ set splitright
 " }}}
 " Lightline {{{
 let g:lightline = {
-  \ 'colorscheme': 'one',
+  \ 'colorscheme': 'palenight',
   \ 'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
   \ 'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
   \ }
@@ -102,7 +102,7 @@ noremap! <Left> <Esc>
 noremap  <Right> ""
 noremap! <Right> <Esc>
 " }}} Vimux {{{
-so ~/.vim/vimux.vim
+" so ~/.vim/vimux.vim
 " }}}
 " Ultisnippets{{{
 let g:UltiSnipsEditSplit="one"
@@ -148,11 +148,6 @@ let g:tlWindowPosition = 1
 " }}}
 " NerdCommenter {{{
 let g:NERDSpaceDelims = 1
-" }}}
-" Tmux Configuration {{{
-" if exists("$TMUX")
-    " set term=screen-256color
-" endif
 " }}}
 " Goyo Configuration {{{
 map <leader>g :Goyo<CR>
@@ -211,7 +206,6 @@ autocmd FileType yaml set tabstop=2 shiftwidth=2 colorcolumn=
 autocmd FileType sh setlocal colorcolumn= expandtab shiftwidth=4 tabstop=8 softtabstop=4
 autocmd FileType vim setlocal colorcolumn= shiftwidth=4 tabstop=8 softtabstop=4
 autocmd FileType markdown setlocal colorcolumn= shiftwidth=4 tabstop=8 softtabstop=4
-autocmd FileType tmux setlocal colorcolumn= shiftwidth=4 tabstop=8 softtabstop=4
 " }}}
 " Persistent Undo {{{
 set undodir=~/.vim/undodir
@@ -221,12 +215,6 @@ set undofile
 map <leader>M :Move<space>
 map <leader>D :Delete<space>
 map <leader>mk :Mkdir<space>
-"}}}
-" Peekaboo {{{
-let g:peekaboo_window = "vert bo 80new"
-"}}}
-" Coc (AutoCompletion) Vim {{{
-so ~/.config/nvim/coc.vim
 "}}}
 " Magic Mode {{{
 nnoremap / /\v
@@ -253,8 +241,4 @@ nmap <leader>tc <Plug>Titlecase
 " ArgWrap {{{
 nnoremap <silent> <leader>a :ArgWrap<CR>
 "}}}
-" VimWiki {{{
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-" }}}
 "vim:foldmethod=marker:foldlevel=0
